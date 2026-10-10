@@ -84,5 +84,11 @@ nvim --headless "+Lazy! sync" +qa
 nvim --headless -c "lua require('mason').setup()" -l "$repo_dir/scripts/mason-install.lua"
 python3 "$repo_dir/scripts/repair-mason-launchers.py"
 
+if command -v powershell.exe >/dev/null 2>&1 && command -v wslpath >/dev/null 2>&1; then
+  windows_setup="$(wslpath -w "$repo_dir/scripts/setup-windows-terminal.ps1")"
+  powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "$windows_setup" || \
+    echo "Windows Terminal font setup did not complete. Run scripts/setup-windows-terminal.ps1 manually."
+fi
+
 echo
 echo "ติดตั้งเสร็จแล้ว เปิด shell ใหม่แล้วรัน: nvim"

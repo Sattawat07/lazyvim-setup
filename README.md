@@ -30,6 +30,16 @@ The installer sets up the required system packages, Node.js, Neovim, Lazy plugin
 nvim
 ```
 
+## Icons and terminal font
+
+LazyVim uses Nerd Font icons for file types, folders, the dashboard, diagnostics, and the status line. The installer installs **JetBrainsMono Nerd Font** and configures Windows Terminal automatically. Windows may display a UAC prompt during this step.
+
+Close every Windows Terminal window and open it again after installation. If the icons still appear as squares or diamonds, run this from WSL:
+
+```bash
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(wslpath -w ~/.config/nvim/scripts/setup-windows-terminal.ps1)"
+```
+
 ## Key bindings
 
 | Key | Action |
