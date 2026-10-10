@@ -1,21 +1,21 @@
 # Sattawat07 LazyVim Setup
 
-ชุดตั้งค่า Neovim บน Ubuntu WSL ที่ใช้ LazyVim และ Mason พร้อมสำหรับเขียน C, C++, Python, Java, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, PHP, Go, Bash, SQL, Markdown, Vue, Svelte และภาษาอื่น ๆ
+A portable Neovim configuration for Ubuntu on WSL, built with LazyVim and Mason. It supports C, C++, Python, Java, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, PHP, Go, Bash, SQL, Markdown, Vue, Svelte, and more.
 
-## จุดเด่น
+## Features
 
-- ธีม TokyoNight Moon พร้อมพื้นหลังโปร่งใส
-- ติดตั้ง LSP, formatter, linter และ debugger ผ่าน Mason
-- กด `F5` เพื่อรันไฟล์เดี่ยวหลายภาษา
-- บันทึกอัตโนมัติเมื่อออกจากโหมดพิมพ์หรือเปลี่ยนไฟล์
-- กด `F1` เพื่อใส่หรืออัปเดต 42 Header
-- ใช้ clipboard ร่วมกับ Windows ใน WSL
-- เปิดไฟล์ HTML ในเบราว์เซอร์ด้วย `F5`
-- ลดปัญหาค้างในไฟล์ HTML/JavaScript ด้วยการจำกัด LSP ให้เริ่มเฉพาะโปรเจกต์ที่เหมาะสม
+- TokyoNight Moon theme with transparent backgrounds
+- Language servers, formatters, linters, and debuggers managed through Mason
+- Run individual source files with `F5`
+- Automatically save changes when leaving Insert mode or switching buffers
+- Add or update a 42 Header with `F1`
+- Share the Windows clipboard from inside WSL
+- Open the current HTML file in a Windows browser with `F5`
+- Safer HTML and JavaScript language server settings to prevent freezes
 
-## ติดตั้งบนเครื่องใหม่
+## Installation
 
-เปิด Ubuntu/WSL แล้วรัน:
+Open Ubuntu or another WSL distribution and run:
 
 ```bash
 git clone https://github.com/Sattawat07/lazyvim-setup.git ~/.config/nvim
@@ -24,38 +24,38 @@ chmod +x install.sh
 ./install.sh
 ```
 
-ตัวติดตั้งจะติดตั้งแพ็กเกจระบบ, Node.js, Neovim, Lazy plugins และเครื่องมือ Mason ที่จำเป็น หลังติดตั้งเสร็จให้เปิด shell ใหม่แล้วใช้:
+The installer sets up the required system packages, Node.js, Neovim, Lazy plugins, and Mason tools. After it finishes, open a new shell and run:
 
 ```bash
 nvim
 ```
 
-## ปุ่มที่ใช้บ่อย
+## Key bindings
 
-| ปุ่ม | การทำงาน |
+| Key | Action |
 | --- | --- |
-| `F5` | รันไฟล์ปัจจุบัน |
-| `F1` | ใส่หรืออัปเดต 42 Header |
-| `Ctrl+/` | เปิดหรือปิด terminal |
-| `Space e` | เปิด file explorer |
-| `Space ff` | ค้นหาไฟล์ |
-| `:Mason` | ดูและจัดการเครื่องมือภาษา |
-| `:Lazy` | ดูและจัดการ plugin |
+| `F5` | Run the current file |
+| `F1` | Add or update the 42 Header |
+| `Ctrl+/` | Toggle the terminal |
+| `Space e` | Open the file explorer |
+| `Space ff` | Find files |
+| `:Mason` | View and manage language tools |
+| `:Lazy` | View and manage plugins |
 
-## ตั้งค่า 42 Header
+## 42 Header configuration
 
-ค่าเริ่มต้นอยู่ใน `lua/plugins/42header.lua`:
+The default identity is configured in `lua/plugins/42header.lua`:
 
 - Username: `sbontem`
 - Email: `sboontem@student.42bangkok.com`
 
-แก้สองค่านี้ให้ตรงกับบัญชีของคุณก่อนใช้งานบนเครื่องอื่น
+Update these values to match your own 42 account before using the configuration.
 
-## ภาพพื้นหลัง
+## Wallpaper
 
-ภาพพระจันทร์ที่ใช้กับ Windows Terminal อยู่ใน `assets/moonlit-lake.png` ให้นำไปตั้งเป็น background image ของ Windows Terminal และปรับ opacity ตามต้องการ
+The moon wallpaper is included at `assets/moonlit-lake.png`. Set it as the Windows Terminal background image and adjust the opacity to your preference.
 
-## อัปเดตในอนาคต
+## Updating
 
 ```bash
 cd ~/.config/nvim
@@ -63,4 +63,8 @@ git pull
 nvim --headless "+Lazy! sync" +qa
 ```
 
-ชุดนี้ออกแบบสำหรับ Ubuntu บน WSL การใช้บน Linux ปกติทำได้เกือบทั้งหมด แต่ส่วน clipboard และการเปิด HTML จะทำงานต่างออกไปตามระบบ
+This setup is designed for Ubuntu on WSL. Most features also work on native Linux, but clipboard integration and opening HTML files depend on the operating system.
+
+## Credits
+
+This configuration was originally cloned from [Golden-Husky](https://github.com/Golden-Husky) and then customized and expanded for this setup. Thank you to Golden-Husky for the original foundation.
